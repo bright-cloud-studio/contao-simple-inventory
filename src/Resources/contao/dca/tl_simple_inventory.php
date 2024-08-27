@@ -3,7 +3,6 @@
 /** Table tl_simple_inventory_tracker */
 $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
 (
- 
     // Config
     'config' => array
     (
@@ -69,7 +68,7 @@ $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
 				'label'               => &$GLOBALS['TL_LANG']['tl_simple_inventory']['toggle'],
 				'icon'                => 'visible.gif',
 				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-				'button_callback'     => array('Asc\Backend\SimpleInventoryTrackerBackend', 'toggleIcon')
+				'button_callback'     => array('Bcs\Backend\SimpleInventory', 'toggleIcon')
 			),
             'show' => array
             (
@@ -91,55 +90,55 @@ $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
     (
         'id' => array
         (
-		'sql'                     	=> "int(10) unsigned NOT NULL auto_increment"
+		    'sql'                     	=> "int(10) unsigned NOT NULL auto_increment"
         ),
-        'tstamp' => array
+            'tstamp' => array
         (
-		'sql'                     	=> "int(10) unsigned NOT NULL default 0"
+		    'sql'                     	=> "int(10) unsigned NOT NULL default 0"
         ),
-	'sorting' => array
-	(
-		'sql'                    	=> "int(10) unsigned NOT NULL default '0'"
-	),
-	'alias' => array
-	(
-		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['alias'],
-		'exclude'                 => true,
-		'inputType'               => 'text',
-		'search'                  => true,
-		'eval'                    => array('unique'=>true, 'rgxp'=>'alias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
-		'save_callback' => array
-		(
-			array('Asc\Backend\SimpleInventoryTrackerBackend', 'generateAlias')
-		),
-		'sql'                     => "varchar(128) COLLATE utf8_bin NOT NULL default ''"
-
-	),
-	'product_name' => array
-	(
-		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['product_name'],
-		'inputType'               => 'text',
-		'default'		  => '',
-		'search'                  => true,
-		'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
-		'sql'                     => "varchar(255) NOT NULL default ''"
-	),
-	'product_inventory' => array
-	(
-		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['product_inventory'],
-		'inputType'               => 'text',
-		'default'		  => '',
-		'search'                  => true,
-		'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
-		'sql'                     => "int(10) unsigned NOT NULL default '0'"
-	),
-	'published' => array
-	(
-		'exclude'                 => true,
-		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['published'],
-		'inputType'               => 'checkbox',
-		'eval'                    => array('submitOnChange'=>true, 'doNotCopy'=>true),
-		'sql'                     => "char(1) NOT NULL default ''"
-	)		
+    	'sorting' => array
+    	(
+    		'sql'                    	=> "int(10) unsigned NOT NULL default '0'"
+    	),
+    	'alias' => array
+    	(
+    		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['alias'],
+    		'exclude'                 => true,
+    		'inputType'               => 'text',
+    		'search'                  => true,
+    		'eval'                    => array('unique'=>true, 'rgxp'=>'alias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
+    		'save_callback' => array
+    		(
+    			array('Bcs\Backend\SimpleInventory', 'generateAlias')
+    		),
+    		'sql'                     => "varchar(128) COLLATE utf8_bin NOT NULL default ''"
+    
+    	),
+    	'product_name' => array
+    	(
+    		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['product_name'],
+    		'inputType'               => 'text',
+    		'default'		  => '',
+    		'search'                  => true,
+    		'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
+    		'sql'                     => "varchar(255) NOT NULL default ''"
+    	),
+    	'product_inventory' => array
+    	(
+    		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['product_inventory'],
+    		'inputType'               => 'text',
+    		'default'		  => '',
+    		'search'                  => true,
+    		'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
+    		'sql'                     => "int(10) unsigned NOT NULL default '0'"
+    	),
+    	'published' => array
+    	(
+    		'exclude'                 => true,
+    		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['published'],
+    		'inputType'               => 'checkbox',
+    		'eval'                    => array('submitOnChange'=>true, 'doNotCopy'=>true),
+    		'sql'                     => "char(1) NOT NULL default ''"
+    	)		
     )
 );
