@@ -15,7 +15,7 @@ $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
             'keys' => array
             (
                 'id' 	=> 	'primary',
-                'alias' =>  'index'
+                'product_name' =>  'index'
             )
         )
     ),
@@ -101,20 +101,6 @@ $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
     	'sorting' => array
     	(
     		'sql'                    	=> "int(10) unsigned NOT NULL default '0'"
-    	),
-    	'alias' => array
-    	(
-    		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['alias'],
-    		'exclude'                 => true,
-    		'inputType'               => 'text',
-    		'search'                  => true,
-    		'eval'                    => array('unique'=>true, 'rgxp'=>'alias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
-    		'save_callback' => array
-    		(
-    			array('Bcs\Backend\SimpleInventory', 'generateAlias')
-    		),
-    		'sql'                     => "varchar(128) COLLATE utf8mb3_bin NOT NULL default ''"
-    
     	),
     	'product_name' => array
     	(
