@@ -70,7 +70,7 @@ $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
 				'label'               => &$GLOBALS['TL_LANG']['tl_simple_inventory']['toggle'],
 				'icon'                => 'visible.gif',
 				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
-				'button_callback'     => array('Bcs\Backend\SimpleInventory', 'toggleIcon')
+				'button_callback'     => array('Bcs\Backend\SimpleInventoryBackend', 'toggleIcon')
 			),
             'show' => array
             (
