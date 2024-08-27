@@ -1,5 +1,7 @@
 <?php
 
+namespace Bcs\Backend;
+
 use Contao\Backend;
 use Bcs\Model\SimpleInventory;
 
