@@ -120,7 +120,7 @@ $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
     	(
     		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['product_name'],
     		'inputType'               => 'text',
-    		'default'		  => '',
+    		'default'                 => '',
     		'search'                  => true,
     		'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
     		'sql'                     => "varchar(255) NOT NULL default ''"
@@ -129,10 +129,10 @@ $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
     	(
     		'label'                   => &$GLOBALS['TL_LANG']['tl_simple_inventory']['product_inventory'],
     		'inputType'               => 'text',
-    		'default'		  => '',
+    		'default'                 => '0',
     		'search'                  => true,
     		'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),
-    		'sql'                     => "int(10) unsigned NOT NULL default '0'"
+    		'sql'                     => "int(10) unsigned NOT NULL default ''"
     	),
     	'published' => array
     	(
