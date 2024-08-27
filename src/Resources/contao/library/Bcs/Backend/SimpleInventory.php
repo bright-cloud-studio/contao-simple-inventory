@@ -3,6 +3,8 @@
 namespace Bcs\Backend;
 
 use Contao\Backend;
+use Contao\Image;
+use Contao\Input;
 use Bcs\Model\SimpleInventory;
 
 class SimpleInventoryBackend extends Backend
@@ -10,9 +12,9 @@ class SimpleInventoryBackend extends Backend
 
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
     {
-        if (strlen(\Input::get('tid')))
+        if (strlen(Input::get('tid')))
         {
-            $this->toggleVisibility(\Input::get('tid'), (\Input::get('state') == 1), (@func_get_arg(12) ?: null));
+            $this->toggleVisibility(Input::get('tid'), (Input::get('state') == 1), (@func_get_arg(12) ?: null));
             $this->redirect($this->getReferer());
         }
         
@@ -23,7 +25,7 @@ class SimpleInventoryBackend extends Backend
             $icon = 'invisible.gif';
         }
         
-        return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
+        return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ';
     }
 
     public function toggleVisibility($intId, $blnVisible, DataContainer $dc=null)
