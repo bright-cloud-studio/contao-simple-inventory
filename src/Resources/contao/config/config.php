@@ -6,7 +6,7 @@ $GLOBALS['BE_MOD']['content']['simple_inventory'] = array(
 );
 
 /* Hooks */
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][]        = array('Bcs\SimpleInventory', 'onReplaceTag');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][]        = array('Bcs\Backend\SimpleInventory', 'onReplaceTag');
 
 /* Models */
 $GLOBALS['TL_MODELS']['tl_simple_inventory']       = 'Bcs\Model\SimpleInventory';
