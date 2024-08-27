@@ -54,7 +54,7 @@ class SimpleInventoryBackend extends Backend
 		$this->Database->prepare("UPDATE tl_simple_inventory SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
 					   ->execute($intId);
 
-		$this->log('A new version of record "tl_simple_inventory.id='.$intId.'" has been created'.$this->getParentEntries('tl_simple_inventory_tracker', $intId), __METHOD__, TL_GENERAL);
+		//$this->log('A new version of record "tl_simple_inventory.id='.$intId.'" has been created'.$this->getParentEntries('tl_simple_inventory_tracker', $intId), __METHOD__, TL_GENERAL);
 	}
 
     public function onReplaceTag (string $insertTag)
