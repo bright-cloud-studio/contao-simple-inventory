@@ -1,12 +1,14 @@
 <?php
 
+use Contao\DC_Table;
+
 /** Table tl_simple_inventory_tracker */
 $GLOBALS['TL_DCA']['tl_simple_inventory'] = array
 (
     // Config
     'config' => array
     (
-        'dataContainer'               => 'Table',
+        'dataContainer'               => DC_Table::class,
         'enableVersioning'            => true,
         'sql' => array
         (
