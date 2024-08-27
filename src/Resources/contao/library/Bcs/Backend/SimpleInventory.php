@@ -29,9 +29,9 @@ class SimpleInventory extends Backend
     public function toggleVisibility($intId, $blnVisible, DataContainer $dc=null)
 	{
 		// Trigger the save_callback
-		if (is_array($GLOBALS['TL_DCA']['tl_simple_inventory_tracker']['fields']['published']['save_callback']))
+		if (is_array($GLOBALS['TL_DCA']['tl_simple_inventory']['fields']['published']['save_callback']))
 		{
-			foreach ($GLOBALS['TL_DCA']['tl_simple_inventory_tracker']['fields']['published']['save_callback'] as $callback)
+			foreach ($GLOBALS['TL_DCA']['tl_simple_inventory']['fields']['published']['save_callback'] as $callback)
 			{
 				if (is_array($callback))
 				{
@@ -46,38 +46,10 @@ class SimpleInventory extends Backend
 		}
 
 		// Update the database
-		$this->Database->prepare("UPDATE tl_simple_inventory_tracker SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
+		$this->Database->prepare("UPDATE tl_simple_inventory SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
 					   ->execute($intId);
 
-		$this->log('A new version of record "tl_simple_inventory_tracker.id='.$intId.'" has been created'.$this->getParentEntries('tl_simple_inventory_tracker', $intId), __METHOD__, TL_GENERAL);
-	}
-
-    public function generateAlias($varValue, DataContainer $dc)
-	{
-		$autoAlias = false;
-		
-		// Generate an alias if there is none
-		if ($varValue == '')
-		{
-			$autoAlias = true;
-			$varValue = standardize(\StringUtil::restoreBasicEntities($dc->activeRecord->name));
-		}
-
-		$objAlias = $this->Database->prepare("SELECT id FROM tl_simple_inventory_tracker WHERE id=? OR alias=?")
-								   ->execute($dc->id, $varValue);
-
-		// Check whether the page alias exists
-		if ($objAlias->numRows > 1)
-		{
-			if (!$autoAlias)
-			{
-				throw new Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasExists'], $varValue));
-			}
-
-			$varValue .= '-' . $dc->id;
-		}
-
-		return $varValue;
+		$this->log('A new version of record "tl_simple_inventory.id='.$intId.'" has been created'.$this->getParentEntries('tl_simple_inventory_tracker', $intId), __METHOD__, TL_GENERAL);
 	}
 
     public function onReplaceTag (string $insertTag)
