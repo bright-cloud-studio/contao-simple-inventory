@@ -5,7 +5,7 @@ namespace Bcs\Backend;
 use Contao\Backend;
 use Bcs\Model\SimpleInventory;
 
-class SimpleInventory extends Backend
+class SimpleInventoryBackend extends Backend
 {
 
     public function toggleIcon($row, $href, $label, $title, $icon, $attributes)
